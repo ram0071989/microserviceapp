@@ -1,0 +1,46 @@
+apply plugin: 'java'
+
+/**
+ * Build-script to download the spring boot gradle plugin
+ */
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.4.RELEASE")
+    }
+}
+
+/**
+ * Applying the plugins:
+ * 1. spring boot
+ * 2. spring dependency management
+ */
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+/**
+ * Package & version information
+ */
+
+group 'org.strawberry.microserviceapp'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-data-mongodb"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+jar {
+    enabled = true
+}

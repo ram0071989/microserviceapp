@@ -1,0 +1,4 @@
+rootProject.name = 'home-parent'
+include 'home-core'
+include 'home-view'
+
